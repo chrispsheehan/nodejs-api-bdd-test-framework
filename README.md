@@ -4,19 +4,20 @@
 
 This is a test automation framework written against it.
 
-### Resources
+## Resources
 
-- [Cucumber example](https://github.com/cucumber/cucumber-js/blob/master/docs/nodejs_example.md)
+- [cucumber.js](https://github.com/cucumber/cucumber-js)
+- [Mocha](https://mochajs.org/)
 
 ### Getting started
 
 - [Install Docker](https://www.docker.com/products/docker-desktop)
-- [Node.js](https://nodejs.org/en/)
+- [Install Node.js](https://nodejs.org/en/)
 - [Clone this repositiry to your machine](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
 ### Run the tests
 
-```
+```bash
 cd src
 npm install
 npm test
@@ -24,7 +25,7 @@ npm test
 
 #### Expected output
 
-```
+```bash
 ....................
 
 4 scenarios (4 passed)
