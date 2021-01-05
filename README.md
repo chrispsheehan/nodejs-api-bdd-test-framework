@@ -4,20 +4,42 @@
 
 This is a test automation framework written against it.
 
-### Resources
+## Resources
 
-- [Cucumber example](https://github.com/cucumber/cucumber-js/blob/master/docs/nodejs_example.md)
+- [cucumber.js](https://github.com/cucumber/cucumber-js)
+- [Mocha](https://mochajs.org/)
 
 ### Getting started
 
 - [Install Docker](https://www.docker.com/products/docker-desktop)
-- [Node.js](https://nodejs.org/en/)
+- [Install Node.js](https://nodejs.org/en/)
 - [Clone this repositiry to your machine](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
-#### Run the tests
+### Run the tests
 
-```
+```bash
 cd src
 npm install
 npm test
+```
+
+#### Expected output
+
+```bash
+....................
+
+4 scenarios (4 passed)
+12 steps (12 passed)
+0m00.013s (executing steps: 0m00.003s)
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Share your Cucumber Report with your team at https://reports.cucumber.io │
+│                                                                          │
+│ Command line option:    --publish                                        │
+│ Environment variable:   CUCUMBER_PUBLISH_ENABLED=true                    │
+│                                                                          │
+│ More information at https://reports.cucumber.io/docs/cucumber-js         │
+│                                                                          │
+│ To disable this message, add this to your ./cucumber.js:                 │
+│ module.exports = { default: '--publish-quiet' }                          │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
