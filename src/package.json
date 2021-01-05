@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/chrispsheehan/NodejsAPITestFramework#readme",
   "devDependencies": {
-    "cucumber": "^7.0.0-rc.0"
+    "chai": "^4.2.0",
+    "cucumber": "^7.0.0-rc.0",
+    "mocha": "^8.2.1"
   }
 }
