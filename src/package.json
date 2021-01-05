@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chrispsheehan/NodejsAPITestFramework/issues"
   },
-  "homepage": "https://github.com/chrispsheehan/NodejsAPITestFramework#readme"
+  "homepage": "https://github.com/chrispsheehan/NodejsAPITestFramework#readme",
+  "devDependencies": {
+    "cucumber": "^7.0.0-rc.0"
+  }
 }
