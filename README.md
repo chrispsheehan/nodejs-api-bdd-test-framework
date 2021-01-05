@@ -23,6 +23,13 @@ npm install
 npm test
 ```
 
+### Run the tests (in Docker)
+
+```bash
+docker build -t node-box .
+docker run -e CI=true node-box npm run test
+```
+
 #### Expected output
 
 ```bash
