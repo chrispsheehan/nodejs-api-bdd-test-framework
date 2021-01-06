@@ -11,7 +11,7 @@ Background:
 
 @notsweary
 Scenario Outline: No_Profanity_Removed
-	When I receive an incomming text of <text>
+	When I receive an incomming text of "<text>"
     And I replace profanitys in the content
     Then no asterisks are added 
 
@@ -23,7 +23,7 @@ Examples:
 
 @sweary
 Scenario Outline: Profanity_Removed
-	When I receive an incomming text of <text>
+	When I receive an incomming text of "<text>"
     And I replace profanitys in the content
     Then replaced with the corresponding amount of asterisks
 

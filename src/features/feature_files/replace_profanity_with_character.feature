@@ -10,10 +10,10 @@ Background:
 
 @notsweary
 Scenario Outline: No_Profanity_Replaced_With_Character
-    Given I am using the profanity character replacement service with <replacementCharacter>
-	When I receive an incomming text of <text>
+    Given I am using the profanity character replacement service with "<replacementCharacter>"
+	When I receive an incomming text of "<text>"
     And I replace profanitys in the content
-    Then the <text> remains unchanged
+    Then the "<text>" remains unchanged
 
 Examples:
     | replacementCharacter  | text              |
@@ -23,10 +23,10 @@ Examples:
 
 @sweary
 Scenario Outline: Profanity_Replaced_With_Character
-    Given I am using the profanity character replacement service with <replacementCharacter>
-	When I receive an incomming text of <text>
+    Given I am using the profanity character replacement service with "<replacementCharacter>"
+	When I receive an incomming text of "<text>"
     And I replace profanitys in the content
-    Then replaced profanity with the corresponding amount of <replacementCharacter>    
+    Then replaced profanity with the corresponding amount of "<replacementCharacter>"    
 
 Examples:
     | replacementCharacter  | text              |

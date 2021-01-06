@@ -11,7 +11,7 @@ Background:
 
 @notsweary
 Scenario Outline: No_Profanity_Found
-	When I receive an incomming text of <text>
+	When I receive an incomming text of "<text>"
     And I check the content for profanitys
     Then no profanitys are found
 
@@ -23,7 +23,7 @@ Examples:
 
 @sweary
 Scenario Outline: Profanity_Found
-	When I receive an incomming text of <text>
+	When I receive an incomming text of "<text>"
     And I check the content for profanitys
     Then profanitys are found
 
