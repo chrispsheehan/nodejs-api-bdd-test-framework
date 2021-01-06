@@ -1,4 +1,4 @@
-const { Given, When, Then } = require("cucumber");
+const { Given, When, Then } = require("@cucumber/cucumber");
 const assert = require('chai').assert
 
 Given("a variable set to {int}", function(number) {
