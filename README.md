@@ -8,6 +8,7 @@ This is a test automation framework written against it.
 
 - [cucumber.js](https://github.com/cucumber/cucumber-js)
 - [Mocha](https://mochajs.org/)
+- [SuperTest](https://www.npmjs.com/package/supertest)
 
 ### Getting started
 
