@@ -6,5 +6,5 @@ Given('The profanity removing API is available', async function () {
         .get("/")
         .expect(200)
         .catch(err => 
-            console.log("custom error text" + err));
+            console.log("Could not contact service " + err));
 });
