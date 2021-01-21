@@ -1,5 +1,5 @@
 const { When } = require("@cucumber/cucumber");
 
 When('I receive an incomming text of {string}', function(message) {
-  this.message = message;
+  this.messageText = message;
 });
