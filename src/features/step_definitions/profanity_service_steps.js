@@ -1,8 +1,10 @@
 const { Given } = require("@cucumber/cucumber");
-const expect = require('chai').expect;
+const request = require('supertest')
 
 Given('The profanity removing API is available', async function () {
-    let response = await this.api
-    .get()
-    expect(response.status, 'Status Successful').to.equal(200);
+    request(this.apiUri)
+        .get("/")
+        .expect(200)
+        .catch(err => 
+            console.log("custom error text" + err));
 });
