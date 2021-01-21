@@ -1,8 +1,9 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
+const request = require('supertest')
 
 class CustomWorld extends World {
   messageText = null;
-  apiUri = "https://www.purgomalum.com"
+  request = request("https://www.purgomalum.com");
 
   constructor(options) {
     super(options)
