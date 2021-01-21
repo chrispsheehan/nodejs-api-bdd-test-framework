@@ -6,7 +6,7 @@ When('I replace profanitys in the content', function() {
 });
 
 Given('I am using the profanity replacement service', function() {
-    assert.isTrue(true);
+    this.setService("containsprofanity");
 });
 
 Given('I am using the profanity character replacement service with {string}', function(replacementCharacter) {
