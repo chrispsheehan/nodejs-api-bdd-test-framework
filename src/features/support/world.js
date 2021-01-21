@@ -1,15 +1,17 @@
-const { setWorldConstructor } = require("@cucumber/cucumber");
+const { setWorldConstructor, World } = require("@cucumber/cucumber");
 
-class CustomWorld {
-  constructor() {
-    this.variable = 0;
-  }
+class CustomWorld extends World {
+  variable = 0;
 
-  setTo(number) {
+  constructor(options) {
+    super(options)
+  }   
+
+  async setTo(number) {
     this.variable = number;
   }
 
-  incrementBy(number) {
+  async incrementBy(number) {
     this.variable += number;
   }
 }
