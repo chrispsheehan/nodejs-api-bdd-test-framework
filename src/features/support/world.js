@@ -25,9 +25,7 @@ class CustomWorld extends World {
       .get('/' + this.endpointName + 'text=ass')
       .set('Accept', this.requestType)
       .expect(200)
-      .then(response => {
-          // assert.equal(response.text, 'true');
-          // // assert.equal(response.text, 'false');        
+      .then(response => {     
           console.log(response.text)
       })
   }
