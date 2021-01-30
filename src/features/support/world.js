@@ -1,7 +1,6 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
 const apiUri = "https://www.purgomalum.com";
-const apiService = apiUri + "/service";
 
 
 class CustomWorld extends World {
@@ -9,10 +8,13 @@ class CustomWorld extends World {
   endpointName = null;
   requestType = null;
   apiUri = null;
+  textParam = null;
+  response = null;
 
   constructor(options) {
     super(options)
     this.apiUri = apiUri;
+    this.apiService = apiUri + "/service";
   }
 
   setEndpoint(endpointName, requestType) {
@@ -20,14 +22,8 @@ class CustomWorld extends World {
     this.requestType = requestType;
   }
 
-  executeRequest() {
-    request(apiService)
-      .get('/' + this.endpointName + 'text=ass')
-      .set('Accept', this.requestType)
-      .expect(200)
-      .then(response => {     
-          console.log(response.text)
-      })
+  setMessageContent(messageText) {
+    this.textParam = 'text=' + messageText;
   }
 }
 

@@ -6,5 +6,11 @@ Given('I am using the contains profanity service', function() {
 });
 
 Given('I check the content for profanitys', async function() {
-    this.executeRequest();
+    request(this.apiService)
+      .get('/' + this.endpointName + this.textParam)
+      .set('Accept', this.requestType)
+      .expect(200)
+      .then(response => {
+        console.log(response.text);     
+      })
 });
