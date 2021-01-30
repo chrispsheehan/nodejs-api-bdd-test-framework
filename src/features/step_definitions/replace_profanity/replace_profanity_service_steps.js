@@ -1,22 +1,25 @@
 const { Given, When } = require("@cucumber/cucumber");
-const assert = require('chai').assert
-
-When('I replace profanitys in the content', function() {
-  assert.isTrue(true);
-});
 
 Given('I am using the profanity replacement service', function() {
-    this.setEndpoint('containsprofanity', 'json');
+    this.setEndpoint('json', 'application/json');
+});
+
+When('I replace profanitys in the content', async function() {  
+    request(this.apiService)
+      .get('/' + this.endpointName + this.textParam + this.replaceParam)
+      .set('Accept', this.requestType)
+      .expect(200)
+      .then(response => {
+        console.log(response.body.result);     
+      })
 });
 
 Given('I am using the profanity character replacement service with {string}', function(replacementCharacter) {
-    assert.isTrue(true);
-});
-
-Given('I am using the profanity replacement service {string}', function(replacementString) {
-    assert.isTrue(true);
+    this.setEndpoint('json', 'application/json');
+    this.setReplacementCharacter(replacementCharacter);
 });
 
 Given('I am using the profanity string replacement service with {string}', function (replacementString) {
-    assert.isTrue(true);
+    this.setEndpoint('json', 'application/json');
+    this.setReplacementString(replacementString);
   });
