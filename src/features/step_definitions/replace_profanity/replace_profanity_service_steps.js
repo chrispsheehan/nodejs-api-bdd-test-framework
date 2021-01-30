@@ -5,7 +5,7 @@ Given('I am using the profanity replacement service', function() {
 });
 
 When('I replace profanitys in the content', async function() {  
-    request(this.apiService)
+    await request(this.apiService)
       .get('/' + this.endpointName + this.textParam + this.replaceParam)
       .set('Accept', this.requestType)
       .expect(200)
