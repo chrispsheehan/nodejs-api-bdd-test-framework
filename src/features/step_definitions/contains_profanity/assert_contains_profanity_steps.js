@@ -6,5 +6,5 @@ Then('profanitys are found', function() {
 });
 
 Then('no profanitys are found', function() {
-    assert.isTrue(true);
+  assert.isFalse(false);
 });
