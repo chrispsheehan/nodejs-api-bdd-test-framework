@@ -16,20 +16,20 @@ class CustomWorld extends World {
   }
 
   setEndpoint(endpointName, requestType) {
-    this.endpointName = endpointName;
+    this.endpointName = endpointName + '?';
     this.requestType = requestType;
   }
 
   executeRequest() {
-    // request(apiService)
-    //   .get('/' + this.endpointName + '?text=ass')
-    //   .set('Accept', this.requestType)
-    //   .expect(200)
-    //   .then(response => {
-    //       assert.equal(response.text, 'true');
-    //       // assert.equal(response.text, 'false');        
-    //       console.log('no issues')
-    //   })
+    request(apiService)
+      .get('/' + this.endpointName + 'text=ass')
+      .set('Accept', this.requestType)
+      .expect(200)
+      .then(response => {
+          // assert.equal(response.text, 'true');
+          // // assert.equal(response.text, 'false');        
+          console.log(response.text)
+      })
   }
 }
 
