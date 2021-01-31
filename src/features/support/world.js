@@ -36,10 +36,19 @@ class CustomWorld extends World {
     this.replaceParam = '&fill_text=' + replacementString; 
   }
 
-  getResponse(param, callback) {
-    console.log(this.apiService + '/' + this.endpointName + param);
+  getParams(){
+    if(this.replaceParam) {
+      return this.textParam + this.replaceParam;
+    }
+    else {
+      return this.textParam;
+    }
+  }
+
+  getResponse(callback) {
+    console.log(this.apiService + '/' + this.endpointName + this.getParams());
     request(this.apiService)
-      .get('/' + this.endpointName + param)
+      .get('/' + this.endpointName + this.getParams())
       .set('Accept', this.requestType)
       .expect(200)
       .then(response => {

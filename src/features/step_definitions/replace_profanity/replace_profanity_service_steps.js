@@ -4,8 +4,8 @@ Given('I am using the profanity replacement service', function() {
     this.setEndpoint('json', 'application/json');
 });
 
-When('I replace profanitys in the content', async function() {  
-  this.getResponse(this.textParam + this.replaceParam, response => {
+When('I replace profanitys in the content', async function() {   
+  this.getResponse(response => {
     console.log(response.body);
   })
 });
