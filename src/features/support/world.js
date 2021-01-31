@@ -34,7 +34,18 @@ class CustomWorld extends World {
 
   setReplacementString(replacementString) {
     this.replaceParam = '&fill_text=' + replacementString; 
-  }  
+  }
+
+  getResponse(param, callback) {
+    console.log(this.apiService + '/' + this.endpointName + param);
+    request(this.apiService)
+      .get('/' + this.endpointName + param)
+      .set('Accept', this.requestType)
+      .expect(200)
+      .then(response => {
+        callback(response);
+        }) 
+  }
 }
 
 setWorldConstructor(CustomWorld);
