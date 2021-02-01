@@ -45,14 +45,14 @@ class CustomWorld extends World {
     }
   }
 
-  getResponse(callback) {
+  async getResponse() {
     console.log(this.apiService + '/' + this.endpointName + this.getParams());
-    request(this.apiService)
+    return await request(this.apiService)
       .get('/' + this.endpointName + this.getParams())
       .set('Accept', this.requestType)
       .expect(200)
       .then(response => {
-        callback(response);
+        return response;
         }) 
   }
 }
