@@ -11,7 +11,6 @@ class CustomWorld extends World {
   replaceParam = null;
   result = null;
 
-
   constructor(options) {
     super(options)
     this.apiUri = apiUri;
