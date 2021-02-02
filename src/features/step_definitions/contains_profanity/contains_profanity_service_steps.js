@@ -6,6 +6,5 @@ Given('I am using the contains profanity service', function() {
 });
 
 Given('I check the content for profanitys', async function() {
-    const response = await this.getResponse();
-    this.result = response.text;
+    this.result = (await this.getResponse()).text;
 });

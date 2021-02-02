@@ -5,8 +5,7 @@ Given('I am using the profanity replacement service', function() {
 });
 
 When('I replace profanitys in the content', async function() {   
-    const response = await this.getResponse();
-    this.result = response.body.result;
+    this.result = (await this.getResponse()).body.result;
 });
 
 Given('I am using the profanity character replacement service with {string}', function(replacementCharacter) {
