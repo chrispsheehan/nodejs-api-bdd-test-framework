@@ -2,7 +2,6 @@ const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
 const apiUri = 'https://www.purgomalum.com';
 
-
 class CustomWorld extends World {
   messageText = null;
   endpointName = null;
@@ -10,8 +9,7 @@ class CustomWorld extends World {
   apiUri = null;
   textParam = null;
   replaceParam = null;
-  response = null;
-
+  result = null;
 
   constructor(options) {
     super(options)
@@ -24,17 +22,58 @@ class CustomWorld extends World {
     this.requestType = requestType;
   }
 
-  setMessageContent(messageText) {
-    this.textParam = 'text=' + messageText;
+  setDefaultEndpoint() {
+    this.setEndpoint('json', 'application/json');
   }
 
   setReplacementCharacter(replacementCharacter) {
     this.replaceParam = '&fill_char=' + replacementCharacter;
   }
 
+  setReplaceCharacterEndpoint(replacementCharacter) {
+    this.setDefaultEndpoint();
+    this.setReplacementCharacter(replacementCharacter);    
+  }
+
   setReplacementString(replacementString) {
     this.replaceParam = '&fill_text=' + replacementString; 
-  }  
+  }
+
+  setReplaceStringEndpoint(replacementString) {
+    this.setDefaultEndpoint();
+    this.setReplacementString(replacementString);    
+  }
+
+  getParams(){
+    if(this.replaceParam) {
+      return 'text=' + this.messageText + this.replaceParam;
+    }
+    else {
+      return 'text=' + this.messageText;
+    }
+  }
+
+  async getResponse() {
+    console.log('\r\nRunning ' + this.apiService + '/' + this.endpointName + this.getParams());
+    return await request(this.apiService)
+      .get('/' + this.endpointName + this.getParams())
+      .set('Accept', this.requestType)
+      .expect(200)
+      .then(response => {
+        return response;
+        }) 
+  }
+
+  async isUrlAvailable() {
+    return await request(this.apiUri)
+        .get("/")
+        .expect(200)
+        .catch(err => {
+            console.log("Could not contact service " + err);
+            return false;})
+        .then(() => {
+            return true;});
+  }
 }
 
 setWorldConstructor(CustomWorld);
