@@ -1,22 +1,22 @@
 const { Then } = require("@cucumber/cucumber");
-const assert = require('chai').assert
+const expect = require('chai').expect;
 
 Then('no asterisks are added', function() {
-  assert.isTrue(true);
+    expect(this.result).to.not.contain('*');
 });
 
 Then('replaced with the corresponding amount of asterisks', function() {
-    assert.isTrue(true);
+    expect(this.result).to.contain('*');
 });
 
 Then('replaced profanity with the corresponding amount of {string}', function(replacementCharacter) {
-    assert.isTrue(true);
+    expect(this.result).to.contain(replacementCharacter);
 });
 
 Then('the string of {string} is added', function(replacementString) {
-    assert.isTrue(true);
+    expect(this.result).to.contain(replacementString);
 });
 
-Then('the {string} remains unchanged', function(text) {
-    assert.isTrue(true);
+Then('the {string} remains unchanged', function(orginalText) {
+    expect(this.result).to.equal(orginalText);
 });
