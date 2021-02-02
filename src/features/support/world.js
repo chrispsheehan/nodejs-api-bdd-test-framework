@@ -63,6 +63,17 @@ class CustomWorld extends World {
         return response;
         }) 
   }
+
+  async isUrlAvailable() {
+    return await request(this.apiUri)
+        .get("/")
+        .expect(200)
+        .catch(err => {
+            console.log("Could not contact service " + err);
+            return false;})
+        .then(() => {
+            return true;});
+  }
 }
 
 setWorldConstructor(CustomWorld);

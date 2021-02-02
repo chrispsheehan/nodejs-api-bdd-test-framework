@@ -1,10 +1,6 @@
-const { Given, World } = require("@cucumber/cucumber");
-const request = require('supertest');
+const { Given} = require("@cucumber/cucumber");
+const expect = require('chai').expect;
 
 Given('The profanity removing API is available', async function () {
-    request(this.apiUri)
-        .get("/")
-        .expect(200)
-        .catch(err => 
-            console.log("Could not contact service " + err));
+    expect(await this.isUrlAvailable()).to.be.true;
 });
