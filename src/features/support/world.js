@@ -2,7 +2,6 @@ const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
 const apiUri = 'https://www.purgomalum.com';
 
-
 class CustomWorld extends World {
   messageText = null;
   endpointName = null;
@@ -11,7 +10,6 @@ class CustomWorld extends World {
   textParam = null;
   replaceParam = null;
   result = null;
-
 
   constructor(options) {
     super(options)
@@ -24,24 +22,34 @@ class CustomWorld extends World {
     this.requestType = requestType;
   }
 
-  setMessageContent(messageText) {
-    this.textParam = 'text=' + messageText;
+  setDefaultEndpoint() {
+    this.setEndpoint('json', 'application/json');
   }
 
   setReplacementCharacter(replacementCharacter) {
     this.replaceParam = '&fill_char=' + replacementCharacter;
   }
 
+  setReplaceCharacterEndpoint(replacementCharacter) {
+    this.setDefaultEndpoint();
+    this.setReplacementCharacter(replacementCharacter);    
+  }
+
   setReplacementString(replacementString) {
     this.replaceParam = '&fill_text=' + replacementString; 
   }
 
+  setReplaceStringEndpoint(replacementString) {
+    this.setDefaultEndpoint();
+    this.setReplacementString(replacementString);    
+  }
+
   getParams(){
     if(this.replaceParam) {
-      return this.textParam + this.replaceParam;
+      return 'text=' + this.messageText + this.replaceParam;
     }
     else {
-      return this.textParam;
+      return 'text=' + this.messageText;
     }
   }
 
@@ -54,6 +62,17 @@ class CustomWorld extends World {
       .then(response => {
         return response;
         }) 
+  }
+
+  async isUrlAvailable() {
+    return await request(this.apiUri)
+        .get("/")
+        .expect(200)
+        .catch(err => {
+            console.log("Could not contact service " + err);
+            return false;})
+        .then(() => {
+            return true;});
   }
 }
 
