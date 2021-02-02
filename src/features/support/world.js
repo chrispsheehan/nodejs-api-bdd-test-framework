@@ -10,7 +10,7 @@ class CustomWorld extends World {
   apiUri = null;
   textParam = null;
   replaceParam = null;
-  response = null;
+  result = null;
 
 
   constructor(options) {
@@ -46,7 +46,7 @@ class CustomWorld extends World {
   }
 
   async getResponse() {
-    console.log(this.apiService + '/' + this.endpointName + this.getParams());
+    console.log('\r\nRunning ' + this.apiService + '/' + this.endpointName + this.getParams());
     return await request(this.apiService)
       .get('/' + this.endpointName + this.getParams())
       .set('Accept', this.requestType)
