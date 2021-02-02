@@ -2,7 +2,6 @@ const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
 const apiUri = 'https://www.purgomalum.com';
 
-
 class CustomWorld extends World {
   messageText = null;
   endpointName = null;
@@ -24,10 +23,6 @@ class CustomWorld extends World {
     this.requestType = requestType;
   }
 
-  setMessageContent(messageText) {
-    this.textParam = 'text=' + messageText;
-  }
-
   setReplacementCharacter(replacementCharacter) {
     this.replaceParam = '&fill_char=' + replacementCharacter;
   }
@@ -38,10 +33,10 @@ class CustomWorld extends World {
 
   getParams(){
     if(this.replaceParam) {
-      return this.textParam + this.replaceParam;
+      return 'text=' + this.messageText + this.replaceParam;
     }
     else {
-      return this.textParam;
+      return 'text=' + this.messageText;
     }
   }
 
