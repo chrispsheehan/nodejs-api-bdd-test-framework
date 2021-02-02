@@ -4,14 +4,9 @@ Given('I am using the profanity replacement service', function() {
     this.setEndpoint('json', 'application/json');
 });
 
-When('I replace profanitys in the content', async function() {  
-    request(this.apiService)
-      .get('/' + this.endpointName + this.textParam + this.replaceParam)
-      .set('Accept', this.requestType)
-      .expect(200)
-      .then(response => {
-        console.log(response.body.result);     
-      })
+When('I replace profanitys in the content', async function() {   
+    const response = await this.getResponse();
+    this.result = response.body.result;
 });
 
 Given('I am using the profanity character replacement service with {string}', function(replacementCharacter) {

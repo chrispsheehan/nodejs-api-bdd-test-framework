@@ -10,7 +10,7 @@ class CustomWorld extends World {
   apiUri = null;
   textParam = null;
   replaceParam = null;
-  response = null;
+  result = null;
 
 
   constructor(options) {
@@ -34,7 +34,27 @@ class CustomWorld extends World {
 
   setReplacementString(replacementString) {
     this.replaceParam = '&fill_text=' + replacementString; 
-  }  
+  }
+
+  getParams(){
+    if(this.replaceParam) {
+      return this.textParam + this.replaceParam;
+    }
+    else {
+      return this.textParam;
+    }
+  }
+
+  async getResponse() {
+    console.log('\r\nRunning ' + this.apiService + '/' + this.endpointName + this.getParams());
+    return await request(this.apiService)
+      .get('/' + this.endpointName + this.getParams())
+      .set('Accept', this.requestType)
+      .expect(200)
+      .then(response => {
+        return response;
+        }) 
+  }
 }
 
 setWorldConstructor(CustomWorld);

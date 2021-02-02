@@ -1,10 +1,10 @@
 const { Then } = require("@cucumber/cucumber");
-const assert = require('chai').assert
+const expect = require('chai').expect
 
 Then('profanitys are found', function() {
-  assert.isTrue(true);
+  expect(this.result).to.equal('true');
 });
 
 Then('no profanitys are found', function() {
-  assert.isFalse(false);
+  expect(this.result).to.equal('false');
 });
