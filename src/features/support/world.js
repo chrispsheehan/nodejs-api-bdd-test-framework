@@ -22,12 +22,26 @@ class CustomWorld extends World {
     this.requestType = requestType;
   }
 
+  setDefaultEndpoint() {
+    this.setEndpoint('json', 'application/json');
+  }
+
   setReplacementCharacter(replacementCharacter) {
     this.replaceParam = '&fill_char=' + replacementCharacter;
   }
 
+  setReplaceCharacterEndpoint(replacementCharacter) {
+    this.setDefaultEndpoint();
+    this.setReplacementCharacter(replacementCharacter);    
+  }
+
   setReplacementString(replacementString) {
     this.replaceParam = '&fill_text=' + replacementString; 
+  }
+
+  setReplaceStringEndpoint(replacementString) {
+    this.setDefaultEndpoint();
+    this.setReplacementString(replacementString);    
   }
 
   getParams(){
