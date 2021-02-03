@@ -16,7 +16,7 @@ class CustomWorld extends World {
   constructor(options) {
     super(options)
     this.apiUri = apiUri;
-    this.apiService = apiUri + '/' + config.endpoint;
+    this.api = apiUri + '/' + config.endpoint;
   }
 
   setEndpoint(endpointName, requestType) {
@@ -56,8 +56,8 @@ class CustomWorld extends World {
   }
 
   async getResponse() {
-    console.log('\r\nRunning ' + this.apiService + '/' + this.endpointName + this.getParams());
-    return await request(this.apiService)
+    console.log('\r\nRunning ' + this.api + '/' + this.endpointName + this.getParams());
+    return await request(this.api)
       .get('/' + this.endpointName + this.getParams())
       .set('Accept', this.requestType)
       .expect(200)
