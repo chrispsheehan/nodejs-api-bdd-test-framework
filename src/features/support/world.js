@@ -1,8 +1,8 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
-let settings = require("./../../settings.json");
+var config = require("./../../config.js");
 
-const apiUri = settings.baseurl;
+const apiUri = config.baseurl;
 
 class CustomWorld extends World {
   messageText = null;
@@ -16,7 +16,7 @@ class CustomWorld extends World {
   constructor(options) {
     super(options)
     this.apiUri = apiUri;
-    this.apiService = apiUri + "/service";
+    this.apiService = apiUri + '/' + config.endpoint;
   }
 
   setEndpoint(endpointName, requestType) {
@@ -25,11 +25,11 @@ class CustomWorld extends World {
   }
 
   setDefaultEndpoint() {
-    this.setEndpoint('json', 'application/json');
+    this.setEndpoint(config.defaultDataType, 'application/' + config.defaultDataType);
   }
 
   setReplacementCharacter(replacementCharacter) {
-    this.replaceParam = '&fill_char=' + replacementCharacter;
+    this.replaceParam = '&' + config.replacecharacterparam + '=' + replacementCharacter;
   }
 
   setReplaceCharacterEndpoint(replacementCharacter) {
@@ -38,7 +38,7 @@ class CustomWorld extends World {
   }
 
   setReplacementString(replacementString) {
-    this.replaceParam = '&fill_text=' + replacementString; 
+    this.replaceParam = '&' + config.replacestringparam + '=' + replacementString; 
   }
 
   setReplaceStringEndpoint(replacementString) {
@@ -48,10 +48,10 @@ class CustomWorld extends World {
 
   getParams(){
     if(this.replaceParam) {
-      return 'text=' + this.messageText + this.replaceParam;
+      return config.testprocessparam + '=' + this.messageText + this.replaceParam;
     }
     else {
-      return 'text=' + this.messageText;
+      return config.testprocessparam + '=' + this.messageText;
     }
   }
 

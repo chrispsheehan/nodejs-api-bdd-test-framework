@@ -7,8 +7,8 @@ config.baseurl = process.env.BASEURL || settings.baseurl;
 config.endpoint = "service";
 config.defaultDataType = "json";
 config.containsprofanityservice = "containsprofanity";
-config.replacecharacterservice = "fill_char";
-config.replacestringservice = "fill_text";
+config.replacecharacterparam = "fill_char";
+config.replacestringparam = "fill_text";
 config.testprocessparam = "text";
 
 module.exports = config;
