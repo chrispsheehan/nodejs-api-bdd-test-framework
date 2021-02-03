@@ -19,21 +19,25 @@ class CustomWorld extends World {
     this.api = apiUri + '/' + config.endpoint;
   }
 
-  setEndpoint(endpointName, requestType) {
-    this.endpointName = endpointName + '?';
+  setService(serviceName, requestType) {
+    this.endpointName = serviceName + '?';
     this.requestType = requestType;
   }
 
-  setDefaultEndpoint() {
-    this.setEndpoint(config.defaultDataType, 'application/' + config.defaultDataType);
+  setDefaultService() {
+    this.setService(config.defaultDataType, 'application/' + config.defaultDataType);
+  }
+
+  setContainsProfanityService() {
+    this.setService(config.containsprofanityservice, 'text/plain');
   }
 
   setReplacementCharacter(replacementCharacter) {
     this.replaceParam = '&' + config.replacecharacterparam + '=' + replacementCharacter;
   }
 
-  setReplaceCharacterEndpoint(replacementCharacter) {
-    this.setDefaultEndpoint();
+  setReplaceCharacterService(replacementCharacter) {
+    this.setDefaultService();
     this.setReplacementCharacter(replacementCharacter);    
   }
 
@@ -41,8 +45,8 @@ class CustomWorld extends World {
     this.replaceParam = '&' + config.replacestringparam + '=' + replacementString; 
   }
 
-  setReplaceStringEndpoint(replacementString) {
-    this.setDefaultEndpoint();
+  setReplaceStringService(replacementString) {
+    this.setDefaultService();
     this.setReplacementString(replacementString);    
   }
 
