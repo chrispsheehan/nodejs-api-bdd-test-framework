@@ -1,6 +1,8 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
-const apiUri = 'https://www.purgomalum.com';
+let settings = require("./../../settings.json");
+
+const apiUri = settings.baseurl;
 
 class CustomWorld extends World {
   messageText = null;
