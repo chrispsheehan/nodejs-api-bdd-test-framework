@@ -1,6 +1,8 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
-const apiUri = 'https://www.purgomalum.com';
+var config = require("./../../config.js");
+
+const apiUri = config.baseurl;
 
 class CustomWorld extends World {
   messageText = null;
@@ -14,48 +16,52 @@ class CustomWorld extends World {
   constructor(options) {
     super(options)
     this.apiUri = apiUri;
-    this.apiService = apiUri + "/service";
+    this.api = apiUri + '/' + config.endpoint;
   }
 
-  setEndpoint(endpointName, requestType) {
-    this.endpointName = endpointName + '?';
+  setService(serviceName, requestType) {
+    this.endpointName = serviceName + '?';
     this.requestType = requestType;
   }
 
-  setDefaultEndpoint() {
-    this.setEndpoint('json', 'application/json');
+  setDefaultService() {
+    this.setService(config.defaultDataType, 'application/' + config.defaultDataType);
+  }
+
+  setContainsProfanityService() {
+    this.setService(config.containsprofanityservice, 'text/plain');
   }
 
   setReplacementCharacter(replacementCharacter) {
-    this.replaceParam = '&fill_char=' + replacementCharacter;
+    this.replaceParam = '&' + config.replacecharacterparam + '=' + replacementCharacter;
   }
 
-  setReplaceCharacterEndpoint(replacementCharacter) {
-    this.setDefaultEndpoint();
+  setReplaceCharacterService(replacementCharacter) {
+    this.setDefaultService();
     this.setReplacementCharacter(replacementCharacter);    
   }
 
   setReplacementString(replacementString) {
-    this.replaceParam = '&fill_text=' + replacementString; 
+    this.replaceParam = '&' + config.replacestringparam + '=' + replacementString; 
   }
 
-  setReplaceStringEndpoint(replacementString) {
-    this.setDefaultEndpoint();
+  setReplaceStringService(replacementString) {
+    this.setDefaultService();
     this.setReplacementString(replacementString);    
   }
 
   getParams(){
     if(this.replaceParam) {
-      return 'text=' + this.messageText + this.replaceParam;
+      return config.testprocessparam + '=' + this.messageText + this.replaceParam;
     }
     else {
-      return 'text=' + this.messageText;
+      return config.testprocessparam + '=' + this.messageText;
     }
   }
 
   async getResponse() {
-    console.log('\r\nRunning ' + this.apiService + '/' + this.endpointName + this.getParams());
-    return await request(this.apiService)
+    console.log('\r\nRunning ' + this.api + '/' + this.endpointName + this.getParams());
+    return await request(this.api)
       .get('/' + this.endpointName + this.getParams())
       .set('Accept', this.requestType)
       .expect(200)
