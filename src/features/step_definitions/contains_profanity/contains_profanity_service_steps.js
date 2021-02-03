@@ -1,7 +1,7 @@
 const { Given } = require("@cucumber/cucumber");
 
 Given('I am using the contains profanity service', function() {
-    this.setEndpoint('containsprofanity', 'text/plain');
+    this.setContainsProfanityService();
 });
 
 Given('I check the content for profanitys', async function() {
