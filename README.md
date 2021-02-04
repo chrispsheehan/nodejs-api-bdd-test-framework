@@ -32,6 +32,17 @@ docker build -t node-box .
 docker run -e CI=true node-box npm run test
 ```
 
+### Filter tests
+
+Documentation found [here](https://cucumber.io/docs/cucumber/api/#tag-expressions)
+Examples;
+
+```bash
+tags="(@sweary or @notsweary)" npm test
+tags="@sweary" npm test
+tags="(@sweary and not @notsweary)" npm test
+```
+
 #### Expected output
 
 ```bash
