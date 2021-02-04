@@ -1,4 +1,4 @@
 FROM node:alpine
 COPY ./src ./
 RUN npm install
-CMD ["npm", "run", "start"]
+ENTRYPOINT ["node", "./node_modules/.bin/cucumber-js"]
