@@ -22,18 +22,44 @@ This is a test automation framework written against it.
 ```bash
 cd src
 npm install
-tags="[FILTER]" npm test
+```
+
+```bash
+tags="[FILTERS]" npm test
+```
+
+or
+
+```bash
+./node_modules/.bin/cucumber-js
+```
+
+or
+
+```bash
+./node_modules/.bin/cucumber-js --tags=[FILTERS]
 ```
 
 ### Run the tests (in Docker)
 
 ```bash
 docker build -t node-box .
-docker run -e CI=true -e BASEURL=https://www.purgomalum.com node-box
 ```
 
 ```bash
-docker run -e CI=true -e BASEURL=https://www.purgomalum.com node-box --tags=[FILTER]
+docker run -e CI=true node-box
+```
+
+or
+
+```bash
+docker run -e CI=true -e BASEURL=https://www.purgomalum.com node-box
+```
+
+or
+
+```bash
+docker run -e CI=true node-box --tags=[FILTER]
 ```
 
 ### Filter tests
