@@ -22,25 +22,29 @@ This is a test automation framework written against it.
 ```bash
 cd src
 npm install
-npm test
+tags="[FILTER]" npm test
 ```
 
 ### Run the tests (in Docker)
 
 ```bash
 docker build -t node-box .
-docker run -e CI=true node-box npm run test
+docker run -e CI=true -e BASEURL=https://www.purgomalum.com node-box
+```
+
+```bash
+docker run -e CI=true -e BASEURL=https://www.purgomalum.com node-box --tags=[FILTER]
 ```
 
 ### Filter tests
 
 Documentation found [here](https://cucumber.io/docs/cucumber/api/#tag-expressions)
-Examples;
+Examples filters;
 
 ```bash
-tags="(@sweary or @notsweary)" npm test
-tags="@sweary" npm test
-tags="(@sweary and not @notsweary)" npm test
+"(@sweary or @notsweary)"
+"@sweary"
+"(@sweary and not @notsweary)"
 ```
 
 #### Expected output
