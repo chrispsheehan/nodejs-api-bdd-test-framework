@@ -1,6 +1,6 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
-var config = require("./../../config.js");
+var config = require("../../config/config.js");
 
 const apiUri = config.baseurl;
 
