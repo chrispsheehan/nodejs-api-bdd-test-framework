@@ -2,8 +2,6 @@ const { setWorldConstructor, World } = require("@cucumber/cucumber");
 request = require('supertest');
 var config = require("../../config/config.js");
 
-const apiUri = config.baseurl;
-
 class CustomWorld extends World {
   messageText = null;
   endpointName = null;
@@ -15,8 +13,8 @@ class CustomWorld extends World {
 
   constructor(options) {
     super(options)
-    this.apiUri = apiUri;
-    this.api = apiUri + '/' + config.endpoint;
+    this.apiUri = config.baseurl;
+    this.api = this.apiUri + '/' + config.endpoint;
   }
 
   setService(serviceName, requestType) {
