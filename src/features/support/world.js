@@ -9,7 +9,7 @@ class CustomWorld extends World {
   }
 
   setService(serviceName, requestType) {
-    this.endpointName = serviceName + '?';
+    this.serviceName = serviceName + '?';
     this.requestType = requestType;
   }
 
@@ -49,9 +49,9 @@ class CustomWorld extends World {
   }
 
   async getResponse() {
-    console.log('\r\nRunning ' + config.api + '/' + this.endpointName + this.getParams());
+    console.log('\r\nRunning ' + config.api + '/' + this.serviceName + this.getParams());
     return await request(config.api)
-      .get('/' + this.endpointName + this.getParams())
+      .get('/' + this.serviceName + this.getParams())
       .set('Accept', this.requestType)
       .expect(200)
       .then(response => {
