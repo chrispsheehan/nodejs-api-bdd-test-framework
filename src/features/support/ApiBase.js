@@ -15,5 +15,16 @@ module.exports = class ApiBase {
                 return false;})
             .then(() => {
                 return true;});
-      }    
+      }
+      
+      async getResponse(requestType, queryUrl) {
+        console.log('\r\nRunning ' + queryUrl);
+        return await request(config.api)
+          .get('/' + queryUrl)
+          .set('Accept', requestType)
+          .expect(200)
+          .then(response => {
+            return response;
+            }) 
+      }      
 }
