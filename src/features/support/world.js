@@ -3,14 +3,7 @@ request = require('supertest');
 var config = require("../../config/config.js");
 
 class CustomWorld extends World {
-  messageText = null;
-  endpointName = null;
-  requestType = null;
-  apiUri = null;
-  textParam = null;
-  replaceParam = null;
-  result = null;
-
+  
   constructor(options) {
     super(options)
     this.apiUri = config.baseurl;
