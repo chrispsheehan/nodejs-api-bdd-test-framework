@@ -4,11 +4,11 @@ var config = {};
 
 config.baseurl = process.env.BASEURL || settings.baseurl;
 
-config.endpoint = "service";
-config.defaultDataType = "json";
-config.containsprofanityservice = "containsprofanity";
-config.replacecharacterparam = "fill_char";
-config.replacestringparam = "fill_text";
-config.testprocessparam = "text";
+config.endpoint = settings.endpoint;
+config.defaultDataType = settings.defaultDataType;
+config.containsprofanityservice = settings.containsprofanityservice;
+config.replacecharacterparam = settings.replacecharacterparam;
+config.replacestringparam = settings.replacestringparam;
+config.testprocessparam = settings.testprocessparam;
 
 module.exports = config;

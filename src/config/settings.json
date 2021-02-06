@@ -1,3 +1,9 @@
 {
-    "baseurl" : "https://www.purgomalum.com"
+    "baseurl": "https://www.purgomalum.com",
+    "endpoint": "service",
+    "defaultDataType": "json",
+    "containsprofanityservice": "containsprofanity",
+    "replacecharacterparam": "fill_char",
+    "replacestringparam": "fill_text",
+    "testprocessparam": "text"
 }
