@@ -1,4 +1,4 @@
-const ApiBase = require('./apiBase');
+const ApiBase = require('../framework.api/ApiBase');
 
 request = require('supertest');
 
