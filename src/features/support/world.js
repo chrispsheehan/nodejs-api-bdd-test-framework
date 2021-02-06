@@ -1,11 +1,14 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
+const PurgomalumService = require('./purgomalumService.js');
+
 request = require('supertest');
 var config = require("../../config/config.js");
 
 class CustomWorld extends World {
-  
+
   constructor(options) {
-    super(options)
+    super(options);
+    this.purgomalumService = new PurgomalumService(config.baseurl);
   }
 
   setService(serviceName, requestType) {
@@ -57,17 +60,6 @@ class CustomWorld extends World {
       .then(response => {
         return response;
         }) 
-  }
-
-  async isUrlAvailable() {
-    return await request(config.baseurl)
-        .get("/")
-        .expect(200)
-        .catch(err => {
-            console.log("Could not contact service " + err);
-            return false;})
-        .then(() => {
-            return true;});
   }
 }
 
