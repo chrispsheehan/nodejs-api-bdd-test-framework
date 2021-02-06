@@ -1,5 +1,5 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
-const PurgomalumService = require('./purgomalumService.js');
+const PurgomalumService = require('../purgomalum.service/purgomalumService.js');
 
 request = require('supertest');
 var config = require("../../config/config.js");
