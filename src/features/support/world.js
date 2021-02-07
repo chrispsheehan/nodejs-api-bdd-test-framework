@@ -1,7 +1,6 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
 const PurgomalumService = require('../purgomalum.service/purgomalumService.js');
 
-request = require('supertest');
 var config = require("../../config/config.js");
 
 class CustomWorld extends World {

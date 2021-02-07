@@ -1,5 +1,3 @@
-const { baseurl } = require('../../config/config');
-
 request = require('supertest');
 
 module.exports = class ApiBase {
