@@ -9,6 +9,11 @@ module.exports = class ApiBase {
         this.api = this.baseUrl + '/' + this.endpoint;
     }
 
+    setService(serviceName, requestType) {
+        this.serviceName = serviceName + '?';
+        this.requestType = requestType;
+      }    
+
     async isAvailable() {
         
         console.log('\r\nChecking ' + this.baseUrl + ' is available');
