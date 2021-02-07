@@ -8,7 +8,7 @@ class CustomWorld extends World {
 
   constructor(options) {
     super(options);
-    this.purgomalumService = new PurgomalumService(config.baseurl);
+    this.purgomalumService = new PurgomalumService({baseUrl: config.baseurl, endpoint: config.endpoint});
   }
 
   setService(serviceName, requestType) {
@@ -52,14 +52,8 @@ class CustomWorld extends World {
   }
 
   async getResponse() {
-    console.log('\r\nRunning ' + config.api + '/' + this.serviceName + this.getParams());
-    return await request(config.api)
-      .get('/' + this.serviceName + this.getParams())
-      .set('Accept', this.requestType)
-      .expect(200)
-      .then(response => {
-        return response;
-        }) 
+    var queryUrl = this.serviceName + this.getParams();
+    return this.purgomalumService.getResponse(this.requestType, queryUrl);
   }
 }
 
