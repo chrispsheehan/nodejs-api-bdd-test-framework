@@ -5,8 +5,7 @@ module.exports = class ApiBase {
     constructor(args) {
 
         this.baseUrl = args.baseUrl;
-        this.endpoint = args.endpoint;
-        this.api = this.baseUrl + '/' + this.endpoint;
+        this.api = this.baseUrl + '/' + args.endpoint;
     }
 
     setService(serviceName, requestType) {
