@@ -5,7 +5,7 @@ module.exports = class ApiBase {
     constructor(args) {
 
         this.baseUrl = args.baseUrl;
-        this.api = this.baseUrl + '/' + args.endpoint;
+        this.api = this.baseUrl + '/' + args.endpoint + '/';
     }
 
     setService(serviceName, requestType) {
@@ -29,10 +29,10 @@ module.exports = class ApiBase {
       
       async getResponse(queryUrl) {
         
-        console.log('\r\nGetting response from ' + this.api + this.serviceName + queryUrl);
+        console.log('\r\nGetting response from api' + this.api + this.serviceName + queryUrl);
         
         return await request(this.api)
-          .get('/' + this.serviceName + queryUrl)
+          .get(this.serviceName + queryUrl)
           .set('Accept', this.requestType)
           .expect(200)
           .then(response => {

@@ -6,8 +6,9 @@ var config = require("../../config/config.js");
 class CustomWorld extends World {
 
   constructor(options) {
+
     super(options);
-    this.purgomalumService = new PurgomalumService({baseUrl: config.baseurl, endpoint: config.endpoint});
+    this.purgomalumService = new PurgomalumService({baseUrl: config.baseurl, endpoint: config.endpoint, testprocessparam: config.testprocessparam});
   }
 
   setDefaultService() {
@@ -38,10 +39,10 @@ class CustomWorld extends World {
 
   getParams(){
     if(this.replaceParam) {
-      return config.testprocessparam + '=' + this.messageText + this.replaceParam;
+      return this.purgomalumService.setTextProcessParam(this.messageText) + this.replaceParam;
     }
     else {
-      return config.testprocessparam + '=' + this.messageText;
+      return this.purgomalumService.setTextProcessParam(this.messageText);
     }
   }
 
