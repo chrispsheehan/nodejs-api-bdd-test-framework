@@ -10,17 +10,12 @@ class CustomWorld extends World {
     this.purgomalumService = new PurgomalumService({baseUrl: config.baseurl, endpoint: config.endpoint});
   }
 
-  setService(serviceName, requestType) {
-    this.serviceName = serviceName + '?';
-    this.requestType = requestType;
-  }
-
   setDefaultService() {
-    this.setService(config.defaultDataType, 'application/' + config.defaultDataType);
+    this.purgomalumService.setService(config.defaultDataType, 'application/' + config.defaultDataType);
   }
 
   setContainsProfanityService() {
-    this.setService(config.containsprofanityservice, 'text/plain');
+    this.purgomalumService.setService(config.containsprofanityservice, 'text/plain');
   }
 
   setReplacementCharacter(replacementCharacter) {
@@ -51,8 +46,8 @@ class CustomWorld extends World {
   }
 
   async getResponse() {
-    var queryUrl = this.serviceName + this.getParams();
-    return this.purgomalumService.getResponse(this.requestType, queryUrl);
+    var queryUrl = this.getParams();
+    return this.purgomalumService.getResponse(queryUrl);
   }
 }
 

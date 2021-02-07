@@ -28,13 +28,13 @@ module.exports = class ApiBase {
                 return true;});
       }
       
-      async getResponse(requestType, queryUrl) {
+      async getResponse(queryUrl) {
         
-        console.log('\r\nGetting response from ' + this.api + queryUrl);
+        console.log('\r\nGetting response from ' + this.api + this.serviceName + queryUrl);
         
         return await request(this.api)
-          .get('/' + queryUrl)
-          .set('Accept', requestType)
+          .get('/' + this.serviceName + queryUrl)
+          .set('Accept', this.requestType)
           .expect(200)
           .then(response => {
             return response;
