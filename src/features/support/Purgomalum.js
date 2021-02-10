@@ -3,7 +3,7 @@ const PurgomalumBaseService = require('../purgomalum.service/purgomalumBaseServi
 
 var config = require("../../config/config.js");
 
-class CustomWorld extends World {
+class Purgomalum extends World {
 
   purgomalumService = new PurgomalumBaseService({baseUrl: config.baseurl, endpoint: config.endpoint, textprocessparam: config.textprocessparam});
 
@@ -52,4 +52,4 @@ class CustomWorld extends World {
   }
 }
 
-setWorldConstructor(CustomWorld);
+setWorldConstructor(Purgomalum);
