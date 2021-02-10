@@ -5,7 +5,7 @@ var config = require("../../config/config.js");
 
 class Purgomalum extends World {
 
-  purgomalumService = new PurgomalumBaseService({baseUrl: config.baseurl, endpoint: config.endpoint, textprocessparam: config.textprocessparam});
+  purgomalumService = new PurgomalumBaseService({baseurl: config.baseurl, endpoint: config.endpoint, textprocessparam: config.textprocessparam});
 
   constructor(options) {
     super(options);

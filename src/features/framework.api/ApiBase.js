@@ -4,7 +4,7 @@ module.exports = class ApiBase {
     
     constructor(args) {
 
-        this.baseUrl = args.baseUrl;
+        this.baseUrl = args.baseurl;
         this.api = this.baseUrl + '/' + args.endpoint + '/';
     }
 
