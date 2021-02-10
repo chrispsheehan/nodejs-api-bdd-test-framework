@@ -2,10 +2,10 @@ request = require('supertest');
 
 module.exports = class ApiBase {
     
-    constructor(args) {
+    constructor(options) {
 
-        this.baseUrl = args.baseurl;
-        this.api = this.baseUrl + '/' + args.endpoint + '/';
+        this.baseUrl = options.baseurl;
+        this.api = this.baseUrl + '/' + options.endpoint + '/';
     }
 
     setService(serviceName, requestType) {
