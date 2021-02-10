@@ -5,5 +5,5 @@
     "containsprofanityservice": "containsprofanity",
     "replacecharacterparam": "fill_char",
     "replacestringparam": "fill_text",
-    "testprocessparam": "text"
+    "textprocessparam": "text"
 }

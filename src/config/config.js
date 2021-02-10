@@ -10,6 +10,6 @@ config.defaultDataType = settings.defaultDataType;
 config.containsprofanityservice = settings.containsprofanityservice;
 config.replacecharacterparam = settings.replacecharacterparam;
 config.replacestringparam = settings.replacestringparam;
-config.testprocessparam = settings.testprocessparam;
+config.textprocessparam = settings.textprocessparam;
 
 module.exports = config;

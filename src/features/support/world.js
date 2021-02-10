@@ -5,7 +5,7 @@ var config = require("../../config/config.js");
 
 class CustomWorld extends World {
 
-  purgomalumService = new PurgomalumService({baseUrl: config.baseurl, endpoint: config.endpoint, testprocessparam: config.testprocessparam});
+  purgomalumService = new PurgomalumService({baseUrl: config.baseurl, endpoint: config.endpoint, textprocessparam: config.textprocessparam});
 
   constructor(options) {
     super(options);
