@@ -2,7 +2,7 @@ const ApiBase = require('../framework.api/ApiBase');
 
 request = require('supertest');
 
-module.exports = class PurgomalumService extends ApiBase {
+module.exports = class PurgomalumBaseService extends ApiBase {
     
     constructor(args) {
         super(args);      
