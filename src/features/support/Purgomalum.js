@@ -1,18 +1,14 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
-const PurgomalumBase = require('../purgomalum.service/purgomalumBase.js');
+const PurgomalumContainsService = require('../purgomalum.service/purgomalumContainsService.js');
 
 var config = require("../../config/config.js");
 
 class Purgomalum extends World {
 
-  purgomalumService = new PurgomalumBase(config);
+  purgomalumService = new PurgomalumContainsService(config);
 
   constructor(options) {
     super(options);
-  }
-
-  setDefaultService() {
-    this.purgomalumService.setService(config.defaultDataType, 'application/' + config.defaultDataType);
   }
 
   setContainsProfanityService() {
@@ -24,7 +20,7 @@ class Purgomalum extends World {
   }
 
   setReplaceCharacterService(replacementCharacter) {
-    this.setDefaultService();
+    this.purgomalumService.setDefaultService();
     this.setReplacementCharacter(replacementCharacter);    
   }
 
@@ -33,7 +29,7 @@ class Purgomalum extends World {
   }
 
   setReplaceStringService(replacementString) {
-    this.setDefaultService();
+    this.purgomalumService.setDefaultService();
     this.setReplacementString(replacementString);    
   }
 

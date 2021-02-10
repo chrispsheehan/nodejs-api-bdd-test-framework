@@ -1,7 +1,7 @@
 const { Given, When } = require("@cucumber/cucumber");
 
 Given('I am using the profanity replacement service', function() {
-    this.setDefaultService();
+    this.purgomalumService.setDefaultService();
 });
 
 When('I replace profanitys in the content', async function() {   
