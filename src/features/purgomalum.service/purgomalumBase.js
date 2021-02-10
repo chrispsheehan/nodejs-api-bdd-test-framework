@@ -1,6 +1,6 @@
 const ApiBase = require('../framework.api/ApiBase');
 
-module.exports = class PurgomalumBaseService extends ApiBase {
+module.exports = class PurgomalumBase extends ApiBase {
     
     constructor(options) {
         super(options);      
