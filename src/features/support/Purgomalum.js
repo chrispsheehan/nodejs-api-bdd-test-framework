@@ -1,11 +1,11 @@
 const { setWorldConstructor, World } = require("@cucumber/cucumber");
-const PurgomalumBaseService = require('../purgomalum.service/purgomalumBase.js');
+const PurgomalumBase = require('../purgomalum.service/purgomalumBase.js');
 
 var config = require("../../config/config.js");
 
 class Purgomalum extends World {
 
-  purgomalumService = new PurgomalumBaseService(config);
+  purgomalumService = new PurgomalumBase(config);
 
   constructor(options) {
     super(options);
