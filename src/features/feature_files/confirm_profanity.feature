@@ -1,4 +1,3 @@
-@target
 Feature: Find_Profanity
 	As a person who is a little bit delicate
     I would like to have warning that there may be naughty words
