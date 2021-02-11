@@ -28,8 +28,8 @@ module.exports = class ApiBase {
       }
       
       async getResponse(paramsArray) {
-        console.log(`\r\nGetting response from api ${this.api}${this.serviceName}`);
-        console.log(`Params ${JSON.stringify(paramsArray)}`);
+        console.log(`\r\nEndpoint: ${this.api}${this.serviceName}`);
+        console.log(`Params: ${JSON.stringify(paramsArray)}`);
 
         return await request(this.api)
           .get(this.serviceName)
