@@ -1,6 +1,6 @@
-const PurgomalumBase = require('./purgomalumService.js');
+const PurgomalumService = require('./purgomalumService.js');
 
-module.exports = class PurgomalumContainsService extends PurgomalumBase {
+module.exports = class PurgomalumContainsService extends PurgomalumService {
     
   constructor(options) {
     super(options);
