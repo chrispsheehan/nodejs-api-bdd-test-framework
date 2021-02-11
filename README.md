@@ -7,8 +7,7 @@ This is a test automation framework written against it.
 ## Resources
 
 - [cucumber.js](https://github.com/cucumber/cucumber-js)
-  - [Test context](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md)
-- [Mocha](https://mochajs.org/)
+- [Chai](https://www.chaijs.com/)
 - [SuperTest](https://github.com/visionmedia/supertest)
 
 ### Getting started
