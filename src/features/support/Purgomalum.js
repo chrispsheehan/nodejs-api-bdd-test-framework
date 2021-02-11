@@ -10,14 +10,14 @@ class Purgomalum extends World {
   
   purgomalumStatus = new PurgomalumStatus(config);
   purgomalumContainsService = new PurgomalumContainsService(config);
-  purgomalumService = new PurgomalumReplaceService(config);
+  purgomalumReplaceService = new PurgomalumReplaceService(config);
 
   constructor(options) {
     super(options);
   }
 
   setContainsProfanityService() {
-    this.purgomalumService.setService(config.containsprofanityservice, 'text/plain');
+    this.purgomalumReplaceService.setService(config.containsprofanityservice, 'text/plain');
   }
 
   setReplacementCharacter(replacementCharacter) {
@@ -25,7 +25,7 @@ class Purgomalum extends World {
   }
 
   setReplaceCharacterService(replacementCharacter) {
-    this.purgomalumService.setDefaultService();
+    this.purgomalumReplaceService.setDefaultService();
     this.setReplacementCharacter(replacementCharacter);    
   }
 
@@ -34,22 +34,22 @@ class Purgomalum extends World {
   }
 
   setReplaceStringService(replacementString) {
-    this.purgomalumService.setDefaultService();
+    this.purgomalumReplaceService.setDefaultService();
     this.setReplacementString(replacementString);    
   }
 
   getParams(){
     if(this.replaceParam) {
-      return this.purgomalumService.setTextProcessParam(this.messageText) + this.replaceParam;
+      return this.purgomalumReplaceService.setTextProcessParam(this.messageText) + this.replaceParam;
     }
     else {
-      return this.purgomalumService.setTextProcessParam(this.messageText);
+      return this.purgomalumReplaceService.setTextProcessParam(this.messageText);
     }
   }
 
   async getResponse() {
     var queryUrl = this.getParams();
-    return this.purgomalumService.getResponse(queryUrl);
+    return this.purgomalumReplaceService.getResponse(queryUrl);
   }
 }
 
