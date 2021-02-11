@@ -1,9 +1,9 @@
 const { Given } = require("@cucumber/cucumber");
 
 Given('I am using the contains profanity service', function() {
-    this.setContainsProfanityService();
+    this.purgomalumContainsService.setContainsProfanityService();
 });
 
 Given('I check the content for profanitys', async function() {
-    this.result = (await this.getResponse()).text;
+    this.result = await this.purgomalumContainsService.getResult(this.messageText);
 });

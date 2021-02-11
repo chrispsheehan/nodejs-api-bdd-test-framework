@@ -29,6 +29,7 @@ module.exports = class ApiBase {
       
       async getResponse(queryUrl) {
         
+        console.log('queryurl ' + queryUrl);
         console.log('\r\nGetting response from api' + this.api + this.serviceName + queryUrl);
         
         return await request(this.api)

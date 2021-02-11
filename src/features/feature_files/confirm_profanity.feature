@@ -1,3 +1,4 @@
+@target
 Feature: Find_Profanity
 	As a person who is a little bit delicate
     I would like to have warning that there may be naughty words
@@ -7,7 +8,6 @@ Feature: Find_Profanity
 Background:
     Given The profanity removing API is available
     And I am using the contains profanity service
-
 
 @notsweary
 Scenario Outline: No_Profanity_Found
