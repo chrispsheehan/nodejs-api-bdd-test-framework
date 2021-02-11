@@ -13,6 +13,6 @@ module.exports = class PurgomalumContainsService extends PurgomalumService {
   }      
       
   async process(messageText) {    
-    return (await this.getResponse(this.getTextProcessParam(messageText))).text;
+    return (await this.getProcessedTextResponse(messageText, {})).text;
   }         
 }

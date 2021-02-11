@@ -12,26 +12,27 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
 
   setDefaultService() {
     this.setService(this.defaultDataType, 'application/' + this.defaultDataType);
+
+    this.replaceParams = {};
   }
 
   setReplaceCharacterService(replacementCharacter) {
     this.setDefaultService();
-    this.replaceParams = '&' + this.replaceCharacterParam + '=' + replacementCharacter;    
+
+    this.replaceParams = {
+      [this.replaceCharacterParam] : replacementCharacter
+    }        
   }
 
   setReplaceStringService(replacementString) {
     this.setDefaultService();
-    this.replaceParams = '&' + this.replaceStringParam + '=' + replacementString;  
+
+    this.replaceParams = {
+        [this.replaceStringParam] : replacementString
+      }
   }
   
   async process(messageText) {
-    
-    let testParamString = this.getTextProcessParam(messageText);
-
-    if(this.replaceParams) {
-      return (await this.getResponse(testParamString + this.replaceParams)).body.result;
-    }else{
-      return (await this.getResponse(testParamString)).body.result;
-    }
+    return (await this.getProcessedTextResponse(messageText, this.replaceParams)).body.result;
   }     
 }
