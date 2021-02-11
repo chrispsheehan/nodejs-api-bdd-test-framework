@@ -11,7 +11,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setDefaultService() {
-    this.setService(this.defaultDataType, 'application/' + this.defaultDataType);
+    this.setService(this.defaultDataType, `application/${this.defaultDataType}`);
 
     this.replaceParams = {};
   }
