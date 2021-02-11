@@ -5,7 +5,7 @@ Given('I am using the profanity replacement service', function() {
 });
 
 When('I replace profanitys in the content', async function() {   
-    this.result = await this.purgomalumReplaceService.getResult(this.messageText);
+    this.result = await this.purgomalumReplaceService.process(this.messageText);
 });
 
 Given('I am using the profanity character replacement service with {string}', function(replacementCharacter) {

@@ -24,7 +24,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumBase {
     this.replaceParams = '&' + this.replaceStringParam + '=' + replacementString;  
   }
   
-  async getResult(messageText) {
+  async process(messageText) {
     
     let testParamString = this.getTextProcessParam(messageText);
 
