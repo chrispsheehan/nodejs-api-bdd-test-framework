@@ -9,8 +9,8 @@ var config = require("../../config/config.js");
 class Purgomalum extends World {
   
   purgomalumStatus = new PurgomalumStatus(config);
-  purgomalumReplaceService = new PurgomalumReplaceService(config);
-  purgomalumService = new PurgomalumContainsService(config);
+  purgomalumContainsService = new PurgomalumContainsService(config);
+  purgomalumService = new PurgomalumReplaceService(config);
 
   constructor(options) {
     super(options);
