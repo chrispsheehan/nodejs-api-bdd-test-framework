@@ -3,12 +3,13 @@ let settings = require("./settings.json");
 var config = {};
 
 config.baseurl = process.env.BASEURL || settings.baseurl;
+config.endpoint = settings.endpoint;
+config.api = config.baseurl + '/' + config.endpoint;
 
-config.endpoint = "service";
-config.defaultDataType = "json";
-config.containsprofanityservice = "containsprofanity";
-config.replacecharacterparam = "fill_char";
-config.replacestringparam = "fill_text";
-config.testprocessparam = "text";
+config.defaultDataType = settings.defaultDataType;
+config.containsprofanityservice = settings.containsprofanityservice;
+config.replacecharacterparam = settings.replacecharacterparam;
+config.replacestringparam = settings.replacestringparam;
+config.textprocessparamname = settings.textprocessparamname;
 
 module.exports = config;

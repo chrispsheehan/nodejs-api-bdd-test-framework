@@ -8,7 +8,6 @@ Background:
     Given The profanity removing API is available
     And I am using the contains profanity service
 
-
 @notsweary
 Scenario Outline: No_Profanity_Found
 	When I receive an incomming text of "<text>"
