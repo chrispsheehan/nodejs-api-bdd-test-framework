@@ -20,11 +20,12 @@ module.exports = class ApiBase {
         return await request(this.baseUrl)
             .get("/")
             .expect(200)
+            .then(() => {
+              return true;})            
             .catch(err => {
                 console.log(`Could not contact service ${err}`);
-                return false;})
-            .then(() => {
-                return true;});
+                return false;});
+;
       }
       
       async getResponse(paramsArray) {
