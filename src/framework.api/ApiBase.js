@@ -13,19 +13,20 @@ module.exports = class ApiBase {
         this.requestType = requestType;
       }    
 
-    async isAvailable() {
+    isAvailable(callback) {
         
-        console.log(`\r\nChecking ${this.baseUrl} is available`);
+      console.log(`\r\nChecking ${this.baseUrl} is available`);
 
-        return await request(this.baseUrl)
-            .get("/")
-            .expect(200)
-            .then(() => {
-              return true;})            
-            .catch(err => {
-                console.log(`Could not contact service ${err}`);
-                return false;});
-;
+        request(this.baseUrl)
+          .get("/")
+          .expect(200)
+          .then(() => {
+            callback(true);
+          })            
+          .catch(err => {
+            console.log(`Could not contact service ${err}`);
+            callback(false);
+          });
       }
       
       async getResponse(paramsArray) {
