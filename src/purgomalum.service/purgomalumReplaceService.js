@@ -32,7 +32,15 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
       }
   }
   
-  async process(messageText) {
-    return (await this.getProcessedTextResponse(messageText, this.replaceParams)).body.result;
-  }     
+  process (messageText) {
+    
+    this.getProcessedTextResponse(messageText, this.replaceParams)
+    .then(response => {
+      console.log('repl' + JSON.stringify(response.body.result))
+      return response.body.result;
+    })
+    .catch(err => {
+      return err
+    })
+  }
 }

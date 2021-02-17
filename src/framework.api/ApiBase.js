@@ -29,17 +29,14 @@ module.exports = class ApiBase {
           });
       }
       
-      getResponse(paramsArray, callback) {
+      getResponse(paramsArray) {
         console.log(`\r\nEndpoint: ${this.api}${this.serviceName}`);
         console.log(`Params: ${JSON.stringify(paramsArray)}`);
 
-        request(this.api)
+        return request(this.api)
           .get(this.serviceName)
           .query(paramsArray)
           .set('Accept', this.requestType)
           .expect(200)
-          .then(response => {
-            callback(response);
-          });
       }      
 }
