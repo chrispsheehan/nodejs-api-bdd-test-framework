@@ -5,13 +5,5 @@ Given('I am using the contains profanity service', function() {
 });
 
 Given('I check the content for profanitys', async function() {
-
-    this.result = 
-        await this.purgomalumContainsService.process(this.messageText)
-        .then(response => {
-            return response.text;
-        })
-        .catch(err => {
-            throw err;
-        });
+    this.result = await this.purgomalumContainsService.process(this.messageText);
 });

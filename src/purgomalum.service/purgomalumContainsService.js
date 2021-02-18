@@ -1,7 +1,7 @@
 const PurgomalumService = require('./purgomalumService.js');
 
 module.exports = class PurgomalumContainsService extends PurgomalumService {
-    
+
   constructor(options) {
     super(options);
    
@@ -14,6 +14,14 @@ module.exports = class PurgomalumContainsService extends PurgomalumService {
       
   process(messageText) {
 
-    return this.getProcessedTextResponse(messageText, {})
-  }         
+    return new Promise((resolve, reject) => {
+      this.getProcessedTextResponse(messageText, {})
+      .then(response => {
+        return resolve(response.text);
+      })
+      .catch(err => {
+        return reject(err);
+      });  
+    })
+  }      
 }
