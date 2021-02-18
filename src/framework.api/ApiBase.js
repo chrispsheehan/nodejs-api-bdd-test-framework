@@ -9,34 +9,30 @@ module.exports = class ApiBase {
     }
 
     setService(serviceName, requestType) {
+        
         this.serviceName = serviceName + '?';
         this.requestType = requestType;
-      }    
+    }    
 
-    isAvailable(callback) {
+    isServiceAvailable() {
         
       console.log(`\r\nChecking ${this.baseUrl} is available`);
 
-        request(this.baseUrl)
-          .get("/")
-          .expect(200)
-          .then(() => {
-            callback(true);
-          })            
-          .catch(err => {
-            console.log(`Could not contact service ${err}`);
-            callback(false);
-          });
+      return request(this.baseUrl)
+        .get("/")
+        .expect(200)
       }
-      
-      getResponse(paramsArray) {
-        console.log(`\r\nEndpoint: ${this.api}${this.serviceName}`);
-        console.log(`Params: ${JSON.stringify(paramsArray)}`);
 
-        return request(this.api)
-          .get(this.serviceName)
-          .query(paramsArray)
-          .set('Accept', this.requestType)
-          .expect(200)
+      
+    getResponse(paramsArray) {
+      
+      console.log(`\r\nEndpoint: ${this.api}${this.serviceName}`);
+      console.log(`Params: ${JSON.stringify(paramsArray)}`);
+
+      return request(this.api)
+        .get(this.serviceName)
+        .query(paramsArray)
+        .set('Accept', this.requestType)
+        .expect(200)
       }      
 }

@@ -3,6 +3,7 @@ const PurgomalumService = require('./purgomalumService.js');
 module.exports = class PurgomalumReplaceService extends PurgomalumService {
     
   constructor(options) {
+
     super(options);
 
     this.defaultDataType = options.defaultDataType;
@@ -17,6 +18,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setReplaceCharacterService(replacementCharacter) {
+
     this.setDefaultService();
 
     this.replaceParams = {
@@ -25,6 +27,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setReplaceStringService(replacementString) {
+    
     this.setDefaultService();
 
     this.replaceParams = {

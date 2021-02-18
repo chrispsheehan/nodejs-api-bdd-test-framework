@@ -1,10 +1,7 @@
 const { Given} = require("@cucumber/cucumber");
 const expect = require('chai').expect;
 
-Given('The profanity removing API is available', function () {
+Given('The profanity removing API is available', async function () {
 
-    this.purgomalumService.isAvailable(result => {
-        expect(result).to.be.true
-    });
-
+    expect(await this.purgomalumService.isAvailable()).to.be.true
 });
