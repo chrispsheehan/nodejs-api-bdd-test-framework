@@ -20,7 +20,7 @@ Examples:
 | you are a ferret  | 
 
 
-@sweary
+@sweary @target
 Scenario Outline: Profanity_Found
 	When I receive an incomming text of "<text>"
     And I check the content for profanitys

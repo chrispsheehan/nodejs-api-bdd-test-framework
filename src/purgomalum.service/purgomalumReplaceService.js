@@ -3,6 +3,7 @@ const PurgomalumService = require('./purgomalumService.js');
 module.exports = class PurgomalumReplaceService extends PurgomalumService {
     
   constructor(options) {
+
     super(options);
 
     this.defaultDataType = options.defaultDataType;
@@ -17,6 +18,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setReplaceCharacterService(replacementCharacter) {
+
     this.setDefaultService();
 
     this.replaceParams = {
@@ -25,6 +27,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setReplaceStringService(replacementString) {
+    
     this.setDefaultService();
 
     this.replaceParams = {
@@ -32,7 +35,16 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
       }
   }
   
-  async process(messageText) {
-    return (await this.getProcessedTextResponse(messageText, this.replaceParams)).body.result;
-  }     
+  process(messageText) {
+    
+    return new Promise((resolve, reject) => {
+      this.getProcessedTextResponse(messageText, this.replaceParams)
+      .then(response => {
+        return resolve(response.body.result);
+      })
+      .catch(err => {
+        return reject(err);
+      });  
+    })
+  }
 }
