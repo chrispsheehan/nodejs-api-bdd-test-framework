@@ -9,36 +9,30 @@ module.exports = class ApiBase {
     }
 
     setService(serviceName, requestType) {
+        
         this.serviceName = serviceName + '?';
         this.requestType = requestType;
-      }    
+    }    
 
-    async isAvailable() {
+    isServiceAvailable() {
         
-        console.log(`\r\nChecking ${this.baseUrl} is available`);
+      console.log(`\r\nChecking ${this.baseUrl} is available`);
 
-        return await request(this.baseUrl)
-            .get("/")
-            .expect(200)
-            .then(() => {
-              return true;})            
-            .catch(err => {
-                console.log(`Could not contact service ${err}`);
-                return false;});
-;
+      return request(this.baseUrl)
+        .get("/")
+        .expect(200)
       }
-      
-      async getResponse(paramsArray) {
-        console.log(`\r\nEndpoint: ${this.api}${this.serviceName}`);
-        console.log(`Params: ${JSON.stringify(paramsArray)}`);
 
-        return await request(this.api)
-          .get(this.serviceName)
-          .query(paramsArray)
-          .set('Accept', this.requestType)
-          .expect(200)
-          .then(response => {
-            return response;
-            }) 
+      
+    getResponse(paramsArray) {
+      
+      console.log(`\r\nEndpoint: ${this.api}${this.serviceName}`);
+      console.log(`Params: ${JSON.stringify(paramsArray)}`);
+
+      return request(this.api)
+        .get(this.serviceName)
+        .query(paramsArray)
+        .set('Accept', this.requestType)
+        .expect(200)
       }      
 }
