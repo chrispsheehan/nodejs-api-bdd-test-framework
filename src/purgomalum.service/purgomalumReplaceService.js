@@ -32,8 +32,16 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
       }
   }
   
-  process = function (messageText) {
+  process(messageText) {
     
-    return this.getProcessedTextResponse(messageText, this.replaceParams)
+    return new Promise((resolve, reject) => {
+      this.getProcessedTextResponse(messageText, this.replaceParams)
+      .then(response => {
+        return resolve(response.body.result);
+      })
+      .catch(err => {
+        return reject(err);
+      });  
+    })
   }
 }
