@@ -4,13 +4,14 @@ Given('I am using the contains profanity service', function() {
     this.purgomalumContainsService.setContainsProfanityService();
 });
 
-Given('I check the content for profanitys', function() {
+Given('I check the content for profanitys', async function() {
 
-    console.log('mess' + this.messageText);
-
-    this.result = this.purgomalumContainsService.process(this.messageText, result => {
-        
-        console.log('result ' + result);
-        return result;
-    });
+    this.result = 
+        await this.purgomalumContainsService.process(this.messageText)
+        .then(response => {
+            return response.text;
+        })
+        .catch(err => {
+            throw err;
+        });
 });

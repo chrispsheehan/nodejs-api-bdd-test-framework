@@ -13,9 +13,7 @@ module.exports = class PurgomalumService extends ApiBase {
       var params = {
         [this.textProcessParamName] : messageText
       };
-
-      console.log('messageText' + messageText);
-
+      
       return this.getResponse({...params, ...additionalParams });
     }
 }
