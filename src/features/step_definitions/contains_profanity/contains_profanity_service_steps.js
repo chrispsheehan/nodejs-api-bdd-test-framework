@@ -4,19 +4,13 @@ Given('I am using the contains profanity service', function() {
     this.purgomalumContainsService.setContainsProfanityService();
 });
 
-Given('I check the content for profanitys', async function(next) {
-    
-    // let resultText;
+Given('I check the content for profanitys', function() {
 
-    // //https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md
+    console.log('mess' + this.messageText);
 
-    // //https://stackoverflow.com/questions/54326769/in-cucumber-callback-function-getting-timedout-though-callback-is-called-alrea
-
-    // this.purgomalumContainsService.process(this.messageText, responseText => {
-    //     resultText = responseText;
-    // });
-
-    this.result = this.purgomalumContainsService.process(this.messageText);
-
-    next()
+    this.result = this.purgomalumContainsService.process(this.messageText, result => {
+        
+        console.log('result ' + result);
+        return result;
+    });
 });

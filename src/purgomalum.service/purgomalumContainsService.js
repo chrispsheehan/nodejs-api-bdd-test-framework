@@ -12,15 +12,15 @@ module.exports = class PurgomalumContainsService extends PurgomalumService {
     this.setService(this.containsProfanityService, 'text/plain');
   }      
       
-  process(messageText) {
+  process = function (messageText, callback) {
 
     this.getProcessedTextResponse(messageText, {})
     .then(response => {
-      console.log('contains' +response.text);
-      return response.text;
+      console.log('contains' + response.text);
+      callback(response.text);
     })
     .catch(err => {
-      return err
+      callback(err);
     })
   }         
 }
