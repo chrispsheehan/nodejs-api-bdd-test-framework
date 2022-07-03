@@ -16,7 +16,7 @@ jobs:
         node-version: 18.x
     - name: Build
       working-directory: ./src
-      run: npm ci
+      run: npm install
     - name: test
       working-directory: ./src
       run: npm run all-tests
