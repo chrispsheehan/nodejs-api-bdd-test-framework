@@ -1,5 +1,5 @@
 import { Then } from "@cucumber/cucumber";
-const expect = require('chai').expect;
+import { expect } from 'chai';
 
 Then('no asterisks are added', function() {
     expect(this.result).to.not.contain('*');

@@ -1,8 +1,8 @@
 import { setWorldConstructor, World } from "@cucumber/cucumber";
 
 import PurgomalumService from '../../purgomalum.service/purgomalumService';
-import PurgomalumContainsService from '../../purgomalum.service/purgomalumContainsService.js';
-import PurgomalumReplaceService from '../../purgomalum.service/purgomalumReplaceService.js';
+import PurgomalumContainsService from '../../purgomalum.service/purgomalumContainsService';
+import PurgomalumReplaceService from '../../purgomalum.service/purgomalumReplaceService';
 
 var config = require("../../config/config.js");
 

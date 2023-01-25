@@ -1,6 +1,11 @@
 import PurgomalumService from './purgomalumService.js';
 
 export default class PurgomalumReplaceService extends PurgomalumService {
+  
+  defaultDataType: string;
+  replaceCharacterParam: string;
+  replaceStringParam: string;
+  replaceParams: any;
     
   constructor(options: any) {
 
@@ -18,7 +23,7 @@ export default class PurgomalumReplaceService extends PurgomalumService {
     this.replaceParams = {};
   }
 
-  setReplaceCharacterService(replacementCharacter) {
+  setReplaceCharacterService(replacementCharacter: string) {
 
     this.setDefaultService();
 
@@ -27,7 +32,7 @@ export default class PurgomalumReplaceService extends PurgomalumService {
     }        
   }
 
-  setReplaceStringService(replacementString) {
+  setReplaceStringService(replacementString: string) {
     
     this.setDefaultService();
 

@@ -1,5 +1,5 @@
 import { Given } from "@cucumber/cucumber";
-const expect = require('chai').expect;
+import { expect } from 'chai';
 
 Given('The profanity removing API is available', async function () {
 
