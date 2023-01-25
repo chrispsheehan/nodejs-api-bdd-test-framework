@@ -12,10 +12,12 @@ class Purgomalum extends World {
   purgomalumContainsService = new PurgomalumContainsService(config);
   purgomalumReplaceService = new PurgomalumReplaceService(config);
 
-  messageText: string = "";
+  messageText: string;
 
   constructor(options: any) {
     super(options);
+
+    this.messageText = "";
   }
 }
 
