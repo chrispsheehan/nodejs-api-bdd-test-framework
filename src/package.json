@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "set-tags-var": "sh if [ -z \"$TAGS\" ]; then echo \"tags found\" else echo \"no tags\" fi",
-    "all-tests": "./node_modules/.bin/cucumber-js",
-    "filter-test": "./node_modules/.bin/cucumber-js --tags=\"$tags\""
+    "check": "tsc && cucumber-js features/ --dry-run",
+    "test": "tsc && cucumber-js features/get-reports.feature --world-parameters '{\"apiUrl\":\"http://localhost:3001\"}'"
   },
   "repository": {
     "type": "git",
@@ -18,9 +17,14 @@
     "url": "https://github.com/chrispsheehan/NodejsAPITestFramework/issues"
   },
   "homepage": "https://github.com/chrispsheehan/NodejsAPITestFramework#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "cucumber": "^6.0.7",
+    "supertest": "^6.3.3"
+  },
   "devDependencies": {
-    "@cucumber/cucumber": "^7.0.0",
-    "chai": "^4.2.0",
-    "supertest": "^6.0.1"
+    "@types/chai": "^4.3.4",
+    "@types/cucumber": "^7.0.0",
+    "@types/supertest": "^2.0.12"
   }
 }

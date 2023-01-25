@@ -1,4 +1,4 @@
-const { Then } = require("@cucumber/cucumber");
+import { Then } from "@cucumber/cucumber";
 const expect = require('chai').expect
 
 Then('profanitys are found', function() {

@@ -1,8 +1,8 @@
-const PurgomalumService = require('./purgomalumService.js');
+import PurgomalumService from './purgomalumService.js';
 
-module.exports = class PurgomalumReplaceService extends PurgomalumService {
+export default class PurgomalumReplaceService extends PurgomalumService {
     
-  constructor(options) {
+  constructor(options: any) {
 
     super(options);
 
@@ -12,6 +12,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setDefaultService() {
+
     this.setService(this.defaultDataType, `application/${this.defaultDataType}`);
 
     this.replaceParams = {};
@@ -35,14 +36,14 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
       }
   }
   
-  process(messageText) {
+  process(messageText: string) {
     
     return new Promise((resolve, reject) => {
       this.getProcessedTextResponse(messageText, this.replaceParams)
       .then(response => {
         return resolve(response.body.result);
       })
-      .catch(err => {
+      .catch((err: any) => {
         return reject(err);
       });  
     })

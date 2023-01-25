@@ -1,4 +1,4 @@
-const { Then } = require("@cucumber/cucumber");
+import { Then } from "@cucumber/cucumber";
 const expect = require('chai').expect;
 
 Then('no asterisks are added', function() {
@@ -9,14 +9,14 @@ Then('replaced with the corresponding amount of asterisks', function() {
     expect(this.result).to.contain('*');
 });
 
-Then('replaced profanity with the corresponding amount of {string}', function(replacementCharacter) {
+Then('replaced profanity with the corresponding amount of {string}', function(replacementCharacter: string) {
     expect(this.result).to.contain(replacementCharacter);
 });
 
-Then('the string of {string} is added', function(replacementString) {
+Then('the string of {string} is added', function(replacementString: string) {
     expect(this.result).to.contain(replacementString);
 });
 
-Then('the {string} remains unchanged', function(orginalText) {
+Then('the {string} remains unchanged', function(orginalText: string) {
     expect(this.result).to.equal(orginalText);
 });
