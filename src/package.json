@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "check": "tsc && cucumber-js features/ --dry-run",
-    "test": "tsc && cucumber-js features/get-reports.feature --world-parameters '{\"apiUrl\":\"http://localhost:3001\"}'"
+    "test": "tsc && cucumber-js features/"
   },
   "repository": {
     "type": "git",

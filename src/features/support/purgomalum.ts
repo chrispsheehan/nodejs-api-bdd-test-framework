@@ -4,7 +4,7 @@ import PurgomalumService from '../../purgomalum.service/purgomalumService';
 import PurgomalumContainsService from '../../purgomalum.service/purgomalumContainsService';
 import PurgomalumReplaceService from '../../purgomalum.service/purgomalumReplaceService';
 
-var config = require("../../config/config.js");
+import config from '../../config/config.js';
 
 class Purgomalum extends World {
 
