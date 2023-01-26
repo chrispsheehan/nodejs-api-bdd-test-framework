@@ -4,20 +4,24 @@ import PurgomalumService from '../../purgomalum.service/purgomalumService';
 import PurgomalumContainsService from '../../purgomalum.service/purgomalumContainsService';
 import PurgomalumReplaceService from '../../purgomalum.service/purgomalumReplaceService';
 
-import config from '../../config/config.js';
+import Config from "../../config/config.js";
 
 class Purgomalum extends World {
 
-  purgomalumService = new PurgomalumService(config);
-  purgomalumContainsService = new PurgomalumContainsService(config);
-  purgomalumReplaceService = new PurgomalumReplaceService(config);
-
   messageText: string;
+  purgomalumService: PurgomalumService;
+  purgomalumContainsService: PurgomalumContainsService;
+  purgomalumReplaceService: PurgomalumReplaceService;
 
   constructor(options: any) {
     super(options);
 
+    let config: Config = new Config();
+
     this.messageText = "";
+    this.purgomalumService = new PurgomalumService(config);
+    this.purgomalumContainsService = new PurgomalumContainsService(config);
+    this.purgomalumReplaceService = new PurgomalumReplaceService(config);
   }
 }
 

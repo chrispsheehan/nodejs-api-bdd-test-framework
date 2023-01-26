@@ -1,13 +1,24 @@
 import settings from './settings.json';
 
 export default class Config {
+    
+    baseurl: string;
+    endpoint: string;
+    api: string;
+    defaultDataType: string;
+    containsprofanityservice: string;
+    replacecharacterparam: string;
+    replacestringparam: string;
+    textprocessparamname: string;
 
-    baseurl = process.env.BASEURL || settings.baseurl;
-    endpoint = settings.endpoint;
-    api = this.baseurl + '/' + this.endpoint;
-    defaultDataType = settings.defaultDataType;
-    containsprofanityservice = settings.containsprofanityservice;
-    replacecharacterparam = settings.replacecharacterparam;
-    replacestringparam = settings.replacestringparam;
-    textprocessparamname = settings.textprocessparamname;
+    constructor () {
+        this.baseurl = process.env.BASEURL || settings.baseurl;
+        this.endpoint = settings.endpoint;
+        this.api = this.baseurl + '/' + this.endpoint;
+        this.defaultDataType = settings.defaultDataType;
+        this.containsprofanityservice = settings.containsprofanityservice;
+        this.replacecharacterparam = settings.replacecharacterparam;
+        this.replacestringparam = settings.replacestringparam;
+        this.textprocessparamname = settings.textprocessparamname;
+    }
 }
