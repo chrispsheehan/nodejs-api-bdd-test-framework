@@ -2,7 +2,7 @@ on:
   push:
     branches:    
       - main
-      - javascript
+
   pull_request:
     branches: [ main ]
   schedule:
