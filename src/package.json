@@ -1,22 +1,10 @@
 {
   "name": "nodejsapitestframework",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "check": "tsc && cucumber-js features/ --dry-run",
-    "test": "tsc && cucumber-js features/"
+    "test": "tsc && cucumber-js features/",
+    "filter-test": "tsc && cucumber-js features/ --tags=\"$tags\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chrispsheehan/NodejsAPITestFramework.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chrispsheehan/NodejsAPITestFramework/issues"
-  },
-  "homepage": "https://github.com/chrispsheehan/NodejsAPITestFramework#readme",
   "dependencies": {
     "chai": "^4.3.7",
     "cucumber": "^6.0.7",
