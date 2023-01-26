@@ -6,7 +6,7 @@ import PurgomalumReplaceService from '../../purgomalum.service/purgomalumReplace
 
 import Config from "../../config/config.js";
 
-class Purgomalum extends World {
+class CustomWorld extends World {
 
   messageText: string;
   purgomalumService: PurgomalumService;
@@ -25,4 +25,4 @@ class Purgomalum extends World {
   }
 }
 
-setWorldConstructor(Purgomalum);
+setWorldConstructor(CustomWorld);
