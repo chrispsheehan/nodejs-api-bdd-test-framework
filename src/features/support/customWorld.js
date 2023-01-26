@@ -6,7 +6,7 @@ const PurgomalumReplaceService = require('../../purgomalum.service/purgomalumRep
 
 var config = require("../../config/config.js");
 
-class Purgomalum extends World {
+class CustomWorld extends World {
 
   purgomalumService = new PurgomalumService(config);
   purgomalumContainsService = new PurgomalumContainsService(config);
@@ -17,4 +17,4 @@ class Purgomalum extends World {
   }
 }
 
-setWorldConstructor(Purgomalum);
+setWorldConstructor(CustomWorld);
