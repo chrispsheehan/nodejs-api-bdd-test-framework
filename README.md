@@ -19,9 +19,8 @@ This is a test automation framework written against it.
 ### Run the tests
 
 ```bash
-cd src
 npm install
-npm run all-tests
+npm test
 ```
 
 or with a filter
