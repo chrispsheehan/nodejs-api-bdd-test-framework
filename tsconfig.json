@@ -5,9 +5,13 @@
         "module": "commonjs",
         "sourceMap": true,
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "outDir": "dist"
     },
+    "include": [
+        "src/**/*.ts",
+    ],
     "exclude": [
         "node_modules"
     ]
-  }
+}
