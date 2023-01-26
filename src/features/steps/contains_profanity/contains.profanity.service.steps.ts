@@ -1,4 +1,4 @@
-const { Given } = require("@cucumber/cucumber");
+import { Given } from "@cucumber/cucumber";
 
 Given('I am using the contains profanity service', function() {
     this.purgomalumContainsService.setContainsProfanityService();

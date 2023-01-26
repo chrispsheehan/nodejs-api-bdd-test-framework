@@ -1,0 +1,22 @@
+{
+  "name": "nodejsapitestframework",
+  "scripts": {
+    "copy-features": "copyfiles -u 1 **/features/*.feature dist",
+    "build": "tsc && npm run copy-features",
+    "check": "npm run build && cucumber-js dist/features/ --dry-run",
+    "test": "npm run build && cucumber-js dist/features/",
+    "filter-test": "npm run build && cucumber-js dist/features/ --tags=\"$tags\""
+  },
+  "dependencies": {
+    "chai": "^4.3.7",
+    "cucumber": "^6.0.7",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/cucumber": "^7.0.0",
+    "@types/supertest": "^2.0.12",
+    "copyfiles": "^2.4.1",
+    "typescript": "^4.9.4"
+  }
+}

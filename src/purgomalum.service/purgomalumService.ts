@@ -1,8 +1,10 @@
-const ApiBase = require('../framework.api/ApiBase');
+import ApiBase from '../framework.api/api.base';
 
-module.exports = class PurgomalumService extends ApiBase {
+export default class PurgomalumService extends ApiBase {
+  
+  textProcessParamName: string;
 
-  constructor(options) {
+  constructor(options: any) {
         
     super(options);
         
@@ -10,7 +12,7 @@ module.exports = class PurgomalumService extends ApiBase {
   }
 
 
-  getProcessedTextResponse(messageText, additionalParams) {      
+  getProcessedTextResponse(messageText: string, additionalParams: object) {      
       
     var params = {
       [this.textProcessParamName] : messageText
@@ -19,16 +21,17 @@ module.exports = class PurgomalumService extends ApiBase {
     return this.getResponse({...params, ...additionalParams });
   }
 
+
   isAvailable() {
   
     return new Promise((resolve, reject) => {
       this.isServiceAvailable()
-        .then(() => {
-          return resolve(true);
-        })
-        .catch(() => {
-          return reject(false);
-        })
+      .then(() => {
+        return resolve(true);
+      })
+      .catch(() => {
+        return reject(false);
+      })
     });
   }
 }

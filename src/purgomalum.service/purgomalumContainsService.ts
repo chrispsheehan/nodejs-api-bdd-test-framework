@@ -1,8 +1,10 @@
-const PurgomalumService = require('./purgomalumService.js');
+import PurgomalumService from './purgomalumService';
 
-module.exports = class PurgomalumContainsService extends PurgomalumService {
+export default class PurgomalumContainsService extends PurgomalumService {
+  
+  containsProfanityService: string;
 
-  constructor(options) {
+  constructor(options: any) {
     
     super(options);
    
@@ -14,7 +16,7 @@ module.exports = class PurgomalumContainsService extends PurgomalumService {
     this.setService(this.containsProfanityService, 'text/plain');
   }      
       
-  process(messageText) {
+  process(messageText: string) {
 
     return new Promise((resolve, reject) => {
       this.getProcessedTextResponse(messageText, {})

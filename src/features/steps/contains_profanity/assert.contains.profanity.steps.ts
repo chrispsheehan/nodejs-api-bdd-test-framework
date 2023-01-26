@@ -1,5 +1,5 @@
-const { Then } = require("@cucumber/cucumber");
-const expect = require('chai').expect
+import { Then } from "@cucumber/cucumber";
+import { expect } from 'chai';
 
 Then('profanitys are found', function() {
   expect(this.result).to.equal('true');

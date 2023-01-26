@@ -1,8 +1,13 @@
-const PurgomalumService = require('./purgomalumService.js');
+import PurgomalumService from './purgomalumService.js';
 
-module.exports = class PurgomalumReplaceService extends PurgomalumService {
+export default class PurgomalumReplaceService extends PurgomalumService {
+  
+  defaultDataType: string;
+  replaceCharacterParam: string;
+  replaceStringParam: string;
+  replaceParams: any;
     
-  constructor(options) {
+  constructor(options: any) {
 
     super(options);
 
@@ -12,12 +17,13 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
   }
 
   setDefaultService() {
+
     this.setService(this.defaultDataType, `application/${this.defaultDataType}`);
 
     this.replaceParams = {};
   }
 
-  setReplaceCharacterService(replacementCharacter) {
+  setReplaceCharacterService(replacementCharacter: string) {
 
     this.setDefaultService();
 
@@ -26,7 +32,7 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
     }        
   }
 
-  setReplaceStringService(replacementString) {
+  setReplaceStringService(replacementString: string) {
     
     this.setDefaultService();
 
@@ -35,14 +41,14 @@ module.exports = class PurgomalumReplaceService extends PurgomalumService {
       }
   }
   
-  process(messageText) {
+  process(messageText: string) {
     
     return new Promise((resolve, reject) => {
       this.getProcessedTextResponse(messageText, this.replaceParams)
       .then(response => {
         return resolve(response.body.result);
       })
-      .catch(err => {
+      .catch((err: any) => {
         return reject(err);
       });  
     })
