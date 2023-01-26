@@ -17,8 +17,6 @@ jobs:
       with:
         node-version: 18.x
     - name: Build
-      working-directory: ./src
       run: npm install
     - name: test
-      working-directory: ./src
-      run: npm run all-tests
+      run: npm test
