@@ -19,15 +19,15 @@ This is a test automation framework written against it.
 ### Run the tests
 
 ```bash
-yarn build
+npm run build
 
-yarn test
+npm run test
 ```
 
 or with a filter
 
 ```bash
-tags=@sweary yarn filter-test
+tags=@sweary npm run filter-test
 ```
 
 ### Run the tests (in Docker)

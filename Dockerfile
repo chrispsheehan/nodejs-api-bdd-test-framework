@@ -5,6 +5,6 @@ COPY ./dist /dist
 
 WORKDIR /dist
 
-RUN yarn
+RUN npm install
 
 ENTRYPOINT ["node", "./node_modules/.bin/cucumber-js"]
