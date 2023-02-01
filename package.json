@@ -3,7 +3,7 @@
   "scripts": {
     "copy-features": "copyfiles -u 1 **/features/*.feature dist",
     "ci:install": "mkdir -p dist && cp package.json dist/package.json && cd dist && npm install",
-    "build": "npm run copy-features && tsc",
+    "build": "npm install && npm run copy-features && tsc",
     "check": "cucumber-js dist/features/ --dry-run",
     "test": "cucumber-js dist/features/",
     "filter-test": "cucumber-js dist/features/ --tags=\"$tags\""
