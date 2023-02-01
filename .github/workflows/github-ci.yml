@@ -22,3 +22,67 @@ jobs:
       with:
         name: dist-build
         path: dist
+
+  check-features:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@master
+        with:
+          name: dist-build
+          path: dist
+
+      - name: check-dist
+        run: ls dist
+
+      - name: Check
+        run: cucumber-js dist/features/ --dry-run
+
+  test-sweary:
+    needs: check-features
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@master
+        with:
+          name: dist-build
+          path: dist
+
+      - name: check-dist
+        run: ls dist
+
+      - name: Check
+        run: cucumber-js dist/features/ --tags=@sweary
+
+  test-notsweary:
+    needs: check-features
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@master
+        with:
+          name: dist-build
+          path: dist
+
+      - name: check-dist
+        run: ls dist
+
+      - name: Check
+        run: cucumber-js dist/features/ --tags=@notsweary
+
+  test-all:
+    needs: [ test-sweary, test-notsweary ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@master
+        with:
+          name: dist-build
+          path: dist
+
+      - name: check-dist
+        run: ls dist
+
+      - name: Check
+        run: cucumber-js dist/features/
