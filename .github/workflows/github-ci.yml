@@ -6,15 +6,19 @@ on:
     - cron: "0 10 * * *"
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: 16
+
     - name: Build
-      run: npm install
-    - name: test
-      run: npm test
+      run: yarn build
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: dist-build
+        path: dist
