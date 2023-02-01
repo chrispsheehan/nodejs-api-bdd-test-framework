@@ -19,7 +19,7 @@ This is a test automation framework written against it.
 ### Run the tests
 
 ```bash
-npm run build
+npm install && npm run build
 
 npm run test
 ```

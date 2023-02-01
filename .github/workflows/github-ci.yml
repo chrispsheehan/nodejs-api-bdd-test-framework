@@ -16,7 +16,7 @@ jobs:
         node-version: 16
 
     - name: Build
-      run: yarn build
+      run: npm run ci:install && npm run build
 
     - uses: actions/upload-artifact@master
       with:
@@ -37,7 +37,7 @@ jobs:
         run: ls dist
 
       - name: Check
-        run: yarn && yarn check
+        run: npm run check
 
   test-sweary:
     needs: check-features
@@ -50,7 +50,7 @@ jobs:
           path: dist
 
       - name: Run tests
-        run: yarn && tags=@sweary yarn filter-test
+        run: tags=@sweary npm run filter-test
 
   test-notsweary:
     needs: check-features
@@ -63,7 +63,7 @@ jobs:
           path: dist
 
       - name: Run tests
-        run: yarn && tags=@notsweary yarn filter-test
+        run: tags=@notsweary npm run filter-test
 
   test-all:
     needs: [ test-sweary, test-notsweary ]
@@ -76,4 +76,4 @@ jobs:
           path: dist
 
       - name: Run tests
-        run: yarn && yarn test
+        run: npm run test

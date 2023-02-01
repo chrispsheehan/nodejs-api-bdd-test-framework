@@ -2,10 +2,11 @@
   "name": "nodejsapitestframework",
   "scripts": {
     "copy-features": "copyfiles -u 1 **/features/*.feature dist",
-    "build": "npm install && npm run copy-features && tsc",
+    "ci:install": "mkdir -p dist && cp package.json dist/package.json && cd dist && npm install",
+    "build": "npm run copy-features && tsc",
     "check": "cucumber-js dist/features/ --dry-run",
-    "test": "npm run build && cucumber-js dist/features/",
-    "filter-test": "npm run build && cucumber-js dist/features/ --tags=\"$tags\""
+    "test": "cucumber-js dist/features/",
+    "filter-test": "cucumber-js dist/features/ --tags=\"$tags\""
   },
   "dependencies": {
     "@cucumber/cucumber": "^8.10.0",
