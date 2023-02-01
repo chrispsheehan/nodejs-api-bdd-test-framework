@@ -37,7 +37,7 @@ jobs:
         run: ls dist
 
       - name: Check
-        run: cucumber-js dist/features/ --dry-run
+        run: yarn check
 
   test-sweary:
     needs: check-features
@@ -49,11 +49,8 @@ jobs:
           name: dist-build
           path: dist
 
-      - name: check-dist
-        run: ls dist
-
-      - name: Check
-        run: cucumber-js dist/features/ --tags=@sweary
+      - name: Run tests
+        run: tags=@sweary yarn filter-test
 
   test-notsweary:
     needs: check-features
@@ -65,11 +62,8 @@ jobs:
           name: dist-build
           path: dist
 
-      - name: check-dist
-        run: ls dist
-
-      - name: Check
-        run: cucumber-js dist/features/ --tags=@notsweary
+      - name: Run tests
+        run: tags=@notsweary yarn filter-test
 
   test-all:
     needs: [ test-sweary, test-notsweary ]
@@ -81,8 +75,5 @@ jobs:
           name: dist-build
           path: dist
 
-      - name: check-dist
-        run: ls dist
-
-      - name: Check
-        run: cucumber-js dist/features/
+      - name: Run tests
+        run: yarn test
