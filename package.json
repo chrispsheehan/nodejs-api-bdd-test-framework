@@ -8,8 +8,8 @@
     "filter-test": "yarn build && cucumber-js dist/features/ --tags=\"$tags\""
   },
   "dependencies": {
+    "@cucumber/cucumber": "^8.10.0",
     "chai": "^4.3.7",
-    "cucumber": "^6.0.7",
     "supertest": "^6.3.3"
   },
   "devDependencies": {
