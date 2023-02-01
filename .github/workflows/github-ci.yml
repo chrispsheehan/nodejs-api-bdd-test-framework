@@ -37,7 +37,7 @@ jobs:
         run: ls dist
 
       - name: Check
-        run: yarn check
+        run: yarn && yarn check
 
   test-sweary:
     needs: check-features
@@ -50,7 +50,7 @@ jobs:
           path: dist
 
       - name: Run tests
-        run: tags=@sweary yarn filter-test
+        run: yarn && tags=@sweary yarn filter-test
 
   test-notsweary:
     needs: check-features
@@ -63,7 +63,7 @@ jobs:
           path: dist
 
       - name: Run tests
-        run: tags=@notsweary yarn filter-test
+        run: yarn && tags=@notsweary yarn filter-test
 
   test-all:
     needs: [ test-sweary, test-notsweary ]
@@ -76,4 +76,4 @@ jobs:
           path: dist
 
       - name: Run tests
-        run: yarn test
+        run: yarn && yarn test
